@@ -1,0 +1,23 @@
+<header>
+    <div class="container">        
+            <a class="logo" [routerLink]="['/']" routerLinkActive="router-link-active" >Food Mine!</a>
+        <nav>
+            <ul>
+                <li *ngIf="!isAuth">
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+                <li *ngIf="isAuth" class="menu-container">
+                    <a >{{user.name}}</a>
+                    <div class="menu">
+                        <a [routerLink]="['/profile']">Profile</a>
+                        <a [routerLink]="['/orders']">Orders</a>
+                        <a [routerLink]="['/login']" (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li>
+                    <a [routerLink]="['/cart-page']">Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
